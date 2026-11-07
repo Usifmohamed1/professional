@@ -33,6 +33,7 @@ In this cloud environment PHP/Composer run through `/workspace/professional-env/
 | Blade view compilation | Passed |
 | Existing PHPUnit suite | Passed: 2 tests, 2 assertions |
 | Browser smoke script, 1440px and 390px | Passed: home, listings, login; one h1, no horizontal overflow, CSRF retained |
+| Additional responsive widths | Homepage verified without overflow at 320px, 768px and 1024px |
 | Browser mobile menu | Passed: open state, Escape close, trigger focus restoration |
 | Reduced motion | Passed: readable hero and no pending reveal content |
 | JavaScript | No uncaught page errors during tested flows |
@@ -40,6 +41,7 @@ In this cloud environment PHP/Composer run through `/workspace/professional-env/
 | Property/project details and public pages | HTTP 200 on populated local fixtures |
 | Arabic | Genuine `/ar` route verified RTL at 390px; Arabic listing at 1440px; Lama Sans headings, no horizontal overflow |
 | SEO presentation | Canonical/hreflang output observed on configured homepage; existing SEO rendering calls retained; no production crawl performed |
+| Map tiles | Tested configured map with existing trusted browser CA: 10/10 tiles loaded; TLS verification kept enabled |
 | Inquiry form | Invalid request returned field errors (422); local-only valid request succeeded with array mailer |
 | Wishlist | Passed: guest login modal; authenticated two-item save/remove, badge, pressed state, reload persistence and empty state |
 | Account | Original login succeeded; dashboard, Properties and Settings returned 200; mobile account drawer and responsive layout verified |
