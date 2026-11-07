@@ -1,0 +1,4 @@
+.main-header .logo-box .logo img,
+.main-header .nav-logo img {
+    filter: url("#navbar-logo-white-outline");
+}

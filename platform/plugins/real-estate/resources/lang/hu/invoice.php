@@ -1,0 +1,52 @@
+<?php
+
+return [
+    'invoices' => 'Számlák',
+    'manage_invoices' => 'Számlák kezelése',
+    'invoice_detail' => 'Számla részletei',
+    'name' => 'Számlák',
+    'amount' => 'Összeg',
+    'code' => 'Kód',
+    'show' => 'Számla :code',
+    'print' => 'Számla nyomtatása',
+    'download' => 'Számla letöltése',
+    'heading' => 'Számla',
+    'purchase_at' => 'Vásárlás ideje',
+    'sub_total' => 'Részösszeg',
+    'tax_amount' => 'Adó összege',
+    'discount_amount' => 'Kedvezmény összege',
+    'total_amount' => 'Végösszeg',
+    'status' => 'Állapot',
+    'account' => 'Fiók',
+    'payment_info' => 'Fizetési információk',
+    'payment_method' => 'Fizetési mód',
+    'payment_status' => 'Fizetési állapot',
+    'item' => [
+        'name' => 'Név',
+        'qty' => 'Mennyiség',
+        'description' => 'Leírás',
+    ],
+    'statuses' => [
+        'pending' => 'Függőben',
+        'processing' => 'Feldolgozás alatt',
+        'completed' => 'Befejezve',
+        'canceled' => 'Törölve',
+    ],
+    'template' => [
+        'name' => 'Számla sablon',
+        'setting' => 'Számla beállítások',
+        'setting_description' => 'Számla sablon beállításai',
+        'setting_content' => 'Tartalom',
+        'preview' => 'Előnézet',
+        'preview_heading' => 'Számla sablon előnézete',
+    ],
+    'detail' => [
+        'tax_amount' => 'Adó összege',
+    ],
+    'template_variables' => [
+        'account_name' => 'Fiók neve',
+        'account_email' => 'Fiók e-mail',
+        'account_phone' => 'Fiók telefonszám',
+        'account_address' => 'Fiók cím',
+    ],
+];

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'name' => 'Пакети',
+    'create' => 'Новий пакет',
+    'edit' => 'Редагувати пакет',
+    'price' => 'Ціна',
+    'currency' => 'Валюта',
+    'percent_save' => 'Відсоток економії',
+    'number_of_listings' => 'Кількість оголошень',
+    'add_credit_success' => 'Кредити успішно додано!',
+    'setup_payment_methods' => 'Будь ласка, налаштуйте способи оплати (PayPal, Stripe, COD, Банківський переказ)',
+    'add_credit_warning' => 'Будь ласка, додайте свої кредити, щоб створювати власні пости тут:',
+    'add_credit' => 'Додати кредити',
+    'account_limit' => 'Обмеження покупки на обліковий запис',
+    'account_limit_placeholder' => 'Обліковий запис може придбати x разів',
+    'subscribe_package' => 'Підписатися на пакет',
+    'add_credit_alert' => 'Будь ласка, додайте свої кредити, щоб створювати власні пости.',
+    'price_per_post' => ':price / за пост',
+    'free_posts' => 'Безкоштовно :number пост(ів)',
+    'price_with_sale' => ':price Всього :percentage_sale',
+    'save_percentage' => 'економія :percentage %',
+    'features' => 'Особливості',
+    'title' => 'Заголовок',
+    'feature_example' => 'Напр.: 60-денне розміщення оголошень',
+];

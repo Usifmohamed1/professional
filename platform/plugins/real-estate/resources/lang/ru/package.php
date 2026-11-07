@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'name' => 'Packages',
+    'create' => 'Новый пакет',
+    'edit' => 'Изменить пакет',
+    'price' => 'Price',
+    'currency' => 'Currency',
+    'percent_save' => 'Процент экономии',
+    'number_of_listings' => 'Количество объявлений',
+    'add_credit_success' => 'Добавьте кредит успешно!',
+    'setup_payment_methods' => 'Пожалуйста, настройте способы оплаты (PayPal, Stripe, COD, банковский перевод)',
+    'add_credit_warning' => 'Пожалуйста, добавьте свой кредит, чтобы создавать свои собственные сообщения здесь:',
+    'add_credit' => 'Добавить кредит',
+    'account_limit' => 'Ограничить покупку по аккаунту',
+    'account_limit_placeholder' => 'Аккаунт может совершить покупку x раз',
+    'subscribe_package' => 'Подписаться на пакет',
+    'add_credit_alert' => 'Пожалуйста, добавьте свой кредит, чтобы создавать свои собственные сообщения.',
+    'price_per_post' => ':price / за публикацию',
+    'free_posts' => 'Бесплатно :number публикаций',
+    'price_with_sale' => ':price Всего :percentage_sale',
+    'save_percentage' => 'экономия :percentage %',
+    'features' => 'Особенности',
+    'title' => 'Название',
+    'feature_example' => 'Например: 60-дневные публикации',
+];

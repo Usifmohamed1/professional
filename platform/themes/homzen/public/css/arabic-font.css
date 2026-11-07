@@ -1,0 +1,81 @@
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 100;
+    src: url("../fonts/LamaSans-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 200;
+    src: url("../fonts/LamaSans-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/LamaSans-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/LamaSans-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/LamaSans-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/LamaSans-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/LamaSans-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 800;
+    src: url("../fonts/LamaSans-ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Lama Sans";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/LamaSans-Black.otf") format("opentype");
+}
+
+html[lang|="ar"] {
+    --primary-font: "Lama Sans", sans-serif !important;
+    --heading-font: "Lama Sans", sans-serif !important;
+    --paraFont: "Lama Sans", sans-serif !important;
+}
+
+html[lang|="ar"] .coming-soon-box .subscribe-form .input-group .form-control {
+    text-align: right;
+}

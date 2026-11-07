@@ -1,0 +1,52 @@
+<?php
+
+return [
+    'invoices' => 'Sąskaitos faktūros',
+    'manage_invoices' => 'Tvarkyti sąskaitas faktūras',
+    'invoice_detail' => 'Sąskaitos faktūros informacija',
+    'name' => 'Invoices',
+    'amount' => 'Amount',
+    'code' => 'Code',
+    'show' => 'Sąskaita faktūra __Ph0__',
+    'print' => 'Spausdinkite sąskaitą faktūrą',
+    'download' => 'Atsisiųskite sąskaitą faktūrą',
+    'heading' => 'Invoice',
+    'purchase_at' => 'Pirkti',
+    'sub_total' => 'Sub -viso',
+    'tax_amount' => 'Mokesčių suma',
+    'discount_amount' => 'Nuolaidos suma',
+    'total_amount' => 'Bendra suma',
+    'status' => 'Status',
+    'account' => 'Account',
+    'payment_info' => 'Mokėjimo informacija',
+    'payment_method' => 'Mokėjimo būdas',
+    'payment_status' => 'Mokėjimo būsena',
+    'item' => [
+        'name' => 'Name',
+        'qty' => 'Quantity',
+        'description' => 'Description',
+    ],
+    'statuses' => [
+        'pending' => 'Pending',
+        'processing' => 'Processing',
+        'completed' => 'Completed',
+        'canceled' => 'Canceled',
+    ],
+    'template' => [
+        'name' => 'Sąskaitos faktūros šablonas',
+        'setting' => 'Sąskaitos faktūros nustatymai',
+        'setting_description' => 'Sąskaitos faktūros šablono nustatymai',
+        'setting_content' => 'Content',
+        'preview' => 'Preview',
+        'preview_heading' => 'Peržiūros sąskaitos faktūros šablonas',
+    ],
+    'detail' => [
+        'tax_amount' => 'Mokesčių suma',
+    ],
+    'template_variables' => [
+        'account_name' => 'Paskyros vardas',
+        'account_email' => 'Paskyros el. paštas',
+        'account_phone' => 'Paskyros telefonas',
+        'account_address' => 'Paskyros adresas',
+    ],
+];

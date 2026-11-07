@@ -1,0 +1,52 @@
+<?php
+
+return [
+    'invoices' => 'Rēķini',
+    'manage_invoices' => 'Pārvaldīt rēķinus',
+    'invoice_detail' => 'Rēķina informācija',
+    'name' => 'Invoices',
+    'amount' => 'Amount',
+    'code' => 'Code',
+    'show' => 'Rēķins __ph0__',
+    'print' => 'Drukāt rēķinu',
+    'download' => 'Lejupielādējiet rēķinu',
+    'heading' => 'Invoice',
+    'purchase_at' => 'Pirkt plkst',
+    'sub_total' => 'Kopsummā',
+    'tax_amount' => 'Nodokļu summa',
+    'discount_amount' => 'Atlaides summa',
+    'total_amount' => 'Kopējā summa',
+    'status' => 'Status',
+    'account' => 'Account',
+    'payment_info' => 'Informācija par maksājumu',
+    'payment_method' => 'Maksājuma metode',
+    'payment_status' => 'Maksājuma statuss',
+    'item' => [
+        'name' => 'Name',
+        'qty' => 'Quantity',
+        'description' => 'Description',
+    ],
+    'statuses' => [
+        'pending' => 'Pending',
+        'processing' => 'Processing',
+        'completed' => 'Completed',
+        'canceled' => 'Canceled',
+    ],
+    'template' => [
+        'name' => 'Rēķina veidne',
+        'setting' => 'Rēķinu iestatījumi',
+        'setting_description' => 'Rēķina veidnes iestatījumi',
+        'setting_content' => 'Content',
+        'preview' => 'Preview',
+        'preview_heading' => 'Priekšskatīt rēķina veidni',
+    ],
+    'detail' => [
+        'tax_amount' => 'Nodokļu summa',
+    ],
+    'template_variables' => [
+        'account_name' => 'Konta nosaukums',
+        'account_email' => 'Konta e-pasts',
+        'account_phone' => 'Konta tālrunis',
+        'account_address' => 'Konta adrese',
+    ],
+];
