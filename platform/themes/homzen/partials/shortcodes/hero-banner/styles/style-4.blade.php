@@ -6,7 +6,7 @@
     Theme::asset()->container('footer')->usePath()->add('leaflet-markercluster', 'plugins/leaflet/leaflet.markercluster.js');
 @endphp
 
-<section class="flat-map hero-banner-4">
+<section class="editorial-hero-map flat-map hero-banner-4">
     <div
         data-bb-toggle="list-map"
         id="map"

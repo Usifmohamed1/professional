@@ -1,4 +1,4 @@
-<section class="flat-section-v5 bg-surface flat-recommended flat-recommended-v2">
+<section class="editorial-section editorial-properties flat-section-v5 bg-surface flat-recommended flat-recommended-v2">
     <div class="container">
          {!! Theme::partial('shortcode-heading', ['shortcode' => $shortcode, 'hasButton' => false, 'class' => 'style-2']) !!}
 

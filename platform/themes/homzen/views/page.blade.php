@@ -11,7 +11,7 @@
     Html::tag(
         'div',
         BaseHelper::clean($page->content),
-        ['class' => sprintf('ck-content %s', BaseHelper::isHomepage($page->id) ? '' : 'single-detail')]
+        ['class' => sprintf('ck-content %s', BaseHelper::isHomepage($page->id) ? 'editorial-home-content' : 'single-detail editorial-page-content')]
     )->toHtml(),
     $page
 ) !!}

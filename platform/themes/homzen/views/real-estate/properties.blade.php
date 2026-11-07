@@ -1,9 +1,9 @@
 @php
     Theme::layout('full-width');
+    Theme::set('breadcrumbEnabled', 'no');
     Theme::set('pageTitle', __('Properties'));
 @endphp
 
-<h1 class="d-none">{{ __('Properties') }}</h1>
 
 @include(Theme::getThemeNamespace('views.real-estate.partials.listing'), [
     'actionUrl' => $actionUrl ?? RealEstateHelper::getPropertiesListPageUrl(),

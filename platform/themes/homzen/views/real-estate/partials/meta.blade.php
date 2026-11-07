@@ -44,7 +44,7 @@
                         data-id="{{ $model->getKey() }}"
                         data-add-message="{{ __('Added ":name" to wishlist successfully!', ['name' => $model->name]) }}"
                         data-remove-message="{{ __('Removed ":name" from wishlist successfully!', ['name' => $model->name]) }}"
-                        aria-label="{{ __('Add to wishlist') }}"
+                        aria-label="{{ __('Save :name', ['name' => $model->name]) }}" aria-pressed="false"
                 >
                     <x-core::icon name="ti ti-heart" />
                 </button>

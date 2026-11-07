@@ -1,5 +1,5 @@
 <section
-    class="flat-section flat-location-v2"
+    class="editorial-section editorial-location flat-section flat-location-v2"
     @style(["background-color: $shortcode->background_color" => $shortcode->background_color])
 >
     <div class="container">
@@ -12,7 +12,7 @@
                         {{ RvMedia::image($location->image, $location->name, 'medium-rectangle-column') }}
                     </div>
                     <div class="content">
-                        <h6 class="link">{{ $location->name }}</h6>
+                        <h6 class="link">{{ $location->name }}<span class="editorial-location-arrow" aria-hidden="true">↗</span></h6>
                     </div>
                 </a>
             @endforeach

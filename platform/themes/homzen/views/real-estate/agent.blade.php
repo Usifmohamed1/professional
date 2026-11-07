@@ -3,7 +3,7 @@
     Theme::set('pageTitle', $account->name);
 @endphp
 
-<section class="agent-detail-section">
+<section class="agent-detail-section editorial-agent-profile">
     <div class="agent-header">
         <div class="agent-avatar">
             {{ RvMedia::image($account->avatar_url, $account->name, 'medium-square') }}
@@ -45,7 +45,7 @@
                     }
                 @endphp
                 <div class="agent-whatsapp-section mt-3">
-                    <a href="https://wa.me/+{{ $normalizedWhatsapp }}" target="_blank" class="contact-whatsapp-btn justify-content-center">
+                    <a href="https://wa.me/+{{ $normalizedWhatsapp }}" target="_blank" rel="noopener noreferrer" class="contact-whatsapp-btn justify-content-center">
                         <x-core::icon name="ti ti-brand-whatsapp" />
                         {{ __('Chat on WhatsApp') }}
                     </a>

@@ -1,4 +1,4 @@
-<section class="flat-section pt-0 flat-banner">
+<section class="editorial-section editorial-call-to-action flat-section pt-0 flat-banner">
     <div class="container">
         <div class="wrap-banner bg-surface">
             <div class="box-left">

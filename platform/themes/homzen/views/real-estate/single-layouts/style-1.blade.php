@@ -1,10 +1,14 @@
+<section class="editorial-detail-intro">
+    <div class="container">
+        @include(Theme::getThemeNamespace('views.real-estate.single-layouts.partials.header'), ['model' => $model])
+    </div>
+</section>
+
 @include(Theme::getThemeNamespace('views.real-estate.single-layouts.partials.gallery-slider'), ['model' => $model])
 
 <section class="flat-section pt-0 flat-property-detail">
     <div class="container">
         {!! apply_filters('ads_render', null, 'detail_page_before') !!}
-
-        @include(Theme::getThemeNamespace('views.real-estate.single-layouts.partials.header'), ['model' => $model])
 
         <div class="row">
             <div class="col-lg-8">

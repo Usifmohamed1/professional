@@ -1,4 +1,4 @@
-<section class="flat-section-v4 flat-partner" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
+<section class="editorial-section editorial-image-slider flat-section-v4 flat-partner" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
     <div class="container">
         <div
             class="wrap-partner swiper tf-sw-partner"

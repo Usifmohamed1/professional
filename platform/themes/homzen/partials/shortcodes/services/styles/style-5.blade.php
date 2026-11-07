@@ -1,4 +1,4 @@
-<section class="flat-benefit-v2">
+<section class="editorial-section editorial-services flat-benefit-v2">
     <div class="container">
         <div class="row wrap-benefit-v2">
             <div class="col-lg-4 wow fadeIn" data-wow-delay=".2s" data-wow-duration="2000ms">

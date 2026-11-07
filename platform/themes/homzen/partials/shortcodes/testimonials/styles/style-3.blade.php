@@ -1,5 +1,5 @@
 <section
-    class="flat-section-v2 flat-testimonial-v2 wow fadeInUpSmall"
+    class="editorial-section editorial-testimonials flat-section-v2 flat-testimonial-v2 wow fadeInUpSmall"
     data-wow-delay=".2s"
     data-wow-duration="2000ms"
     @style(["background-color: $shortcode->background_color" => $shortcode->background_color])

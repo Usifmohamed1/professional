@@ -7,12 +7,12 @@
         </a>
         <ul class="nav-tab-filter w-auto" role="tablist">
             <li class="nav-tab-item" role="presentation">
-                <button @class(['nav-link-item', 'active' => $itemLayout === 'grid']) data-bs-toggle="tab" data-bb-toggle="change-layout" data-value="grid">
+                <button @class(['nav-link-item', 'active' => $itemLayout === 'grid']) data-bs-toggle="tab" data-bb-toggle="change-layout" data-value="grid" aria-label="{{ __('Grid view') }}" type="button">
                     <x-core::icon name="ti ti-layout-grid" />
                 </button>
             </li>
             <li class="nav-tab-item" role="presentation">
-                <button @class(['nav-link-item', 'active' => $itemLayout === 'list']) data-bs-toggle="tab" data-bb-toggle="change-layout" data-value="list">
+                <button @class(['nav-link-item', 'active' => $itemLayout === 'list']) data-bs-toggle="tab" data-bb-toggle="change-layout" data-value="list" aria-label="{{ __('List view') }}" type="button">
                     <x-core::icon name="ti ti-layout-list" />
                 </button>
             </li>
@@ -22,7 +22,7 @@
                 <x-core::icon name="ti ti-filter" />
                 <span class="sr-only">{{ __('Filter') }}</span>
             </button>
-            <select name="per_page" id="per_page" class="list-page select_js" data-default="12">
+            <select name="per_page" id="per_page" aria-label="{{ __('Properties per page') }}" class="list-page select_js" data-default="12">
                 @foreach ($perPages as $perPage)
                     <option value="{{ $perPage }}" @selected(BaseHelper::stringify(request()->integer('per_page', 12)) == $perPage)>{{ $perPage }}</option>
                 @endforeach
@@ -31,7 +31,7 @@
                 $defaultSortBy = theme_option('real_estate_default_sort_order', '');
                 $currentSortBy = BaseHelper::stringify(request()->query('sort_by'));
             @endphp
-            <select name="sort_by" id="sort_by" class="list-sort select_js">
+            <select name="sort_by" id="sort_by" aria-label="{{ __('Sort by') }}" class="list-sort select_js">
                 <option value="{{ $defaultSortBy }}" @selected(! $currentSortBy || $currentSortBy === $defaultSortBy)>{{ __('Default') }}</option>
                 @foreach (RealEstateHelper::getSortByList() as $key => $sortBy)
                     @continue($key === $defaultSortBy)

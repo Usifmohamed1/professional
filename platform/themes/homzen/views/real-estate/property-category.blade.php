@@ -9,7 +9,6 @@
     }
 @endphp
 
-<h1 class="d-none">{{ $category->name }}</h1>
 
 @include(Theme::getThemeNamespace('views.real-estate.partials.listing'), [
     'actionUrl' => RealEstateHelper::getPropertiesListPageUrl(),

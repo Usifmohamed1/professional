@@ -1,4 +1,4 @@
-<section class="flat-section flat-service-v4" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
+<section class="editorial-section editorial-services flat-section flat-service-v4" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
     <div class="container">
         <div class="wrap-service-v4 wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
             @if($shortcode->background_image)

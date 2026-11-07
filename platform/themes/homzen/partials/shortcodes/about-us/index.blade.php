@@ -1,12 +1,12 @@
-<section class="flat-section flat-banner-about">
+<section class="editorial-section editorial-about flat-section flat-banner-about">
     <div class="container">
-        <div class="row">
-            <div class="col-md-5">
+        <div class="row editorial-about__intro">
+            <div class="col-md-6">
                 @if ($shortcode->title)
-                    <h3>{!! BaseHelper::clean($shortcode->title) !!}</h3>
+                    <h2 class="editorial-about__title">{!! BaseHelper::clean($shortcode->title) !!}</h2>
                 @endif
             </div>
-            <div class="col-md-7 hover-btn-view">
+            <div class="col-md-6 hover-btn-view editorial-about__story">
                 @if ($shortcode->description)
                     <p class="body-2 text-variant-1">
                         {!! BaseHelper::clean(nl2br($shortcode->description)) !!}
@@ -23,7 +23,7 @@
                 @endif
             </div>
         </div>
-        <div class="banner-video">
+        <div class="banner-video editorial-about__image">
             @if ($shortcode->image)
                 {{ RvMedia::image($shortcode->image, $shortcode->title) }}
             @endif

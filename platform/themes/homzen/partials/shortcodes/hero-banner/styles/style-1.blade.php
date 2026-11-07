@@ -30,21 +30,21 @@
     Theme::asset()->container('footer')->usePath()->add('nice-select', 'js/jquery.nice-select.min.js');
 @endphp
 
-<section class="flat-slider home-1 hero-banner-slider remax-home-hero"
+<section class="flat-slider home-1 hero-banner-slider remax-home-hero editorial-hero"
          @style(["background-image: url('$backgroundImage') !important" => $backgroundImage])
          data-slider-images="{{ json_encode($sliderImages) }}"
          data-rotation-interval="{{ $rotationInterval }}"
          data-enable-rotation="{{ $enableRotation }}"
-         style="transition: background-image 1s ease-in-out;">
+>
     <div class="container relative remax-hero__container">
         <div class="remax-hero__inner">
-            <div class="remax-hero__copy">
+            <div class="remax-hero__copy editorial-hero__copy">
                 <p class="remax-hero__eyebrow">
                     <span aria-hidden="true"></span>
-                    {{ app()->getLocale() === 'ar' ? 'عقارات مختارة في الإسكندرية' : 'ALEXANDRIA, EGYPT · RE/MAX PROFESSIONAL' }}
+                    {{ __('RE/MAX Professional') }}
                 </p>
                 <div class="heading">
-                    <h1 class="animationtext slide" style="color: {{ $titleColor }} !important;">
+                    <h1 class="animationtext slide editorial-hero__title" style="color: {{ $titleColor }} !important;">
                         {!! BaseHelper::clean($shortcode->title) !!}
                         {!! Theme::partial('shortcodes.hero-banner.partials.animation-text', compact('shortcode')) !!}
                     </h1>
@@ -58,7 +58,7 @@
             </div>
 
             @if(is_plugin_active('real-estate') && $shortcode->search_box_enabled)
-                <div class="remax-home-search flat-tab flat-tab-form" role="search" aria-label="{{ __('Search properties') }}">
+                <div id="property-search" class="remax-home-search flat-tab flat-tab-form editorial-search" role="search" aria-label="{{ __('Search properties') }}">
                     <ul class="remax-home-search__tabs nav-tab-form style-1" role="tablist" aria-label="{{ __('Buy or rent') }}">
                         <li class="nav-tab-item" role="presentation">
                             <a
@@ -105,5 +105,11 @@
             @endif
         </div>
     </div>
-    <div class="overlay"></div>
+    <div class="overlay" aria-hidden="true"></div>
+    @if(is_plugin_active('real-estate') && $shortcode->search_box_enabled)
+        <a class="editorial-hero__scroll" href="#property-search">
+            <span>{{ __('Find your next place') }}</span>
+            <span aria-hidden="true">↓</span>
+        </a>
+    @endif
 </section>

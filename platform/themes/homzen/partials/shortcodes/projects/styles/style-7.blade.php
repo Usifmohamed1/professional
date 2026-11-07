@@ -1,4 +1,4 @@
-<section class="flat-section flat-project-v3 wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
+<section class="editorial-section editorial-projects flat-section flat-project-v3 wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
     <div class="container">
         {!! Theme::partial('shortcode-heading', compact('shortcode')) !!}
         <div class="wrap-sw-project">

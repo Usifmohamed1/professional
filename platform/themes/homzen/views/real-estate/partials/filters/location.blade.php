@@ -1,10 +1,14 @@
+@php
+    // One page can contain property and project search forms simultaneously.
+    $locationFieldId = 'location-' . Str::uuid();
+@endphp
 @if (is_plugin_active('location'))
     @if (theme_option('real_estate_use_location_in_search_box_as_dropdown', 'no') === 'yes')
         <div class="form-group-2 form-style form-search-location">
-            <label>{{ __('Location') }}</label>
+            <label for="{{ $locationFieldId }}">{{ __('Location') }}</label>
             <div class="position-relative">
                 <div class="group-select">
-                    <select name="city_id" id="location" class="select_js" data-search-placeholder="{{ __('Search for a city...') }}">
+                    <select name="city_id" id="{{ $locationFieldId }}" class="select_js" data-bb-location-select data-search-placeholder="{{ __('Search for a city...') }}">
                         <option value="">{{ __('All') }}</option>
                         @if (request()->input('city_id'))
                             @php
@@ -23,10 +27,10 @@
         </div>
     @else
         <div class="form-group-2 form-style form-search-location" data-bb-toggle="search-suggestion">
-            <label>{{ __('Location') }}</label>
+            <label for="{{ $locationFieldId }}">{{ __('Location') }}</label>
             <div class="position-relative">
                 <div @class(['group-ip', 'ip-icon' => $style === 3])>
-                    <input type="text" class="form-control" placeholder="{{ __('Search for Location') }}" value="{{ BaseHelper::stringify(request()->input('location')) }}" name="location" data-url="{{ route('public.ajax.cities') }}" />
+                    <input type="text" id="{{ $locationFieldId }}" class="form-control" placeholder="{{ __('Search for Location') }}" value="{{ BaseHelper::stringify(request()->input('location')) }}" name="location" data-url="{{ route('public.ajax.cities') }}" />
                     <x-core::icon name="ti ti-current-location" @class(['icon-right icon-location' => $style === 3]) />
                 </div>
                 <div data-bb-toggle="data-suggestion"></div>

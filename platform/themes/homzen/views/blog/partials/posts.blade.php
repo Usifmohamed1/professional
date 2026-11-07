@@ -1,8 +1,8 @@
 @if($posts->isNotEmpty())
-    <div class="row">
+    <div class="row editorial-stories">
         @foreach($posts as $post)
             <div class="box col-lg-4 col-md-6">
-                <div class="flat-blog-item hover-img">
+                <div class="flat-blog-item hover-img editorial-story">
                     <a class="img-style" href="{{ $post->url }}">
                         {{ RvMedia::image($post->image, $post->name, 'medium-rectangle') }}
                         <span class="date-post">{{ Theme::formatDate($post->created_at) }}</span>
@@ -20,7 +20,7 @@
                             @endif
                         </div>
                         <h6 class="title">
-                            <a href="{{ $post->url }}" class="w-100 text-truncate">{!! BaseHelper::clean($post->name) !!}</a>
+                            <a href="{{ $post->url }}" class="w-100">{!! BaseHelper::clean($post->name) !!}</a>
                         </h6>
                         @if($post->description)
                             <p class="description">{!! BaseHelper::clean(Str::limit($post->description)) !!}</p>

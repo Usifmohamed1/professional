@@ -9,22 +9,22 @@
 @endphp
 
 @if ($post->image && $showFeaturedImage)
-    <section class="flat-banner-blog">
+    <section class="flat-banner-blog editorial-article-image">
         {{ RvMedia::image($post->image, $post->name, lazy: false) }}
     </section>
 @endif
 
-<section @class(['flat-section-v2', 'flat-section' => ! $bottomPostDetailSidebar])>
+<section @class(['flat-section-v2 editorial-article', 'flat-section' => ! $bottomPostDetailSidebar])>
     <div class="container">
         {!! apply_filters('ads_render', null, 'post_detail_before') !!}
 
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="flat-blog-detail">
+                <div class="flat-blog-detail editorial-article-body">
                     @if($post->firstCategory)
                         <a href="{{ $post->firstCategory->url }}" class="blog-tag primary">{{ $post->firstCategory->name }}</a>
                     @endif
-                    <h1 class="h2">{!! BaseHelper::clean($post->name) !!}</h1>
+                    <h1 class="h2 editorial-article-title">{!! BaseHelper::clean($post->name) !!}</h1>
                     <div class="mt-12 d-flex align-items-center gap-16 mb-3">
                         @if (theme_option('blog_show_author_name', 'yes') == 'yes' && class_exists($post->author_type) && ($author = $post->author ?? null) && trim($author->name))
                             <div class="avatar avt-40 round">
@@ -82,11 +82,11 @@
 
                     @if($relatedPosts->isNotEmpty())
                         <div class="post-navigation">
-                            @foreach($relatedPosts as $post)
+                            @foreach($relatedPosts as $relatedPost)
                                 <div @class(['previous-post' => $loop->first, 'next-post' => ! $loop->first])>
                                     <div class="subtitle">{{ $loop->first ? __('Previous') : __('Next') }}</div>
                                     <div class="h7 fw-7 text-black text-capitalize">
-                                        <a href="{{ $post->url }}">{!! BaseHelper::clean($post->name) !!}</a>
+                                        <a href="{{ $relatedPost->url }}">{!! BaseHelper::clean($relatedPost->name) !!}</a>
                                     </div>
                                 </div>
                             @endforeach

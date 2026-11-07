@@ -1,4 +1,4 @@
-<section @class(['flat-section', 'text-center' => $shortcode->centered_content]) @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
+<section @class(['editorial-section editorial-services', 'flat-section', 'text-center' => $shortcode->centered_content]) @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
     <div class="container">
         {!! Theme::partial('shortcode-heading', ['shortcode' => $shortcode, 'centered' => false]) !!}
 
@@ -6,6 +6,7 @@
             <div @class(['wrap-service wow fadeInUpSmall', 'flat-service' => $counters]) data-wow-delay=".4s" data-wow-duration="2000ms">
                 @foreach($services as $service)
                     <div class="box-service hover-btn-view">
+                        <span class="editorial-service-number" aria-hidden="true">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
                         <div class="icon-box">
                             @if($service['icon_image'])
                                 {{ RvMedia::image($service['icon_image'], $service['title'], attributes: ['class' => 'icon', 'data-bb-lazy' => 'false', 'style' => sprintf('max-width: %spx !important; max-height: %spx !important;', $iconImageSize, $iconImageSize)]) }}
