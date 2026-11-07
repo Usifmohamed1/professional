@@ -11,7 +11,8 @@ return [
 
     'events' => [
         'beforeRenderTheme' => function (Theme $theme): void {
-            $version = get_cms_version();
+            $stylePath = __DIR__ . '/public/css/style.css';
+            $version = get_cms_version() . '-' . (is_file($stylePath) ? filemtime($stylePath) : 'editorial');
 
             $boostrapCss = BaseHelper::isRtlEnabled() ? 'bootstrap.rtl.min.css' : 'bootstrap.min.css';
 

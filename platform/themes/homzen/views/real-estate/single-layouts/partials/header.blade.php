@@ -18,7 +18,8 @@
     }
 @endphp
 
-<div class="header-property-detail">
+<div class="header-property-detail editorial-detail-heading">
+    <p class="editorial-eyebrow">{{ $isProperty ? __('The property') : __('The development') }} <span aria-hidden="true">/</span> {{ $model->unique_id ?: $model->getKey() }}</p>
     <div class="content-top d-flex justify-content-between align-items-center">
         <div class="box-name">
             {!! BaseHelper::clean($model->status_html) !!}
@@ -53,3 +54,17 @@
     </div>
     @include(Theme::getThemeNamespace('views.real-estate.partials.meta'), ['model' => $model])
 </div>
+
+@if ($isProperty && ($model->number_bedroom || $model->number_bathroom || $model->square))
+    <dl class="editorial-detail-specs">
+        @if ($model->number_bedroom)
+            <div><dt>{{ __('Bedrooms') }}</dt><dd>{{ fmod($model->number_bedroom, 1) == 0 ? number_format($model->number_bedroom) : $model->number_bedroom }}</dd></div>
+        @endif
+        @if ($model->number_bathroom)
+            <div><dt>{{ __('Bathrooms') }}</dt><dd>{{ fmod($model->number_bathroom, 1) == 0 ? number_format($model->number_bathroom) : $model->number_bathroom }}</dd></div>
+        @endif
+        @if ($model->square)
+            <div><dt>{{ __('Area') }}</dt><dd>{{ $model->square_text }}</dd></div>
+        @endif
+    </dl>
+@endif

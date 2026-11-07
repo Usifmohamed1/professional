@@ -58,7 +58,7 @@
 
 <header
     id="header"
-    @class(['main-header', 'fixed-header' => theme_option('sticky_header_enabled', true), Theme::get('headerClass')])
+    @class(['main-header', 'editorial-header', 'fixed-header' => theme_option('sticky_header_enabled', true), Theme::get('headerClass')])
 >
     <div class="header-lower">
         <div class="row">
@@ -67,12 +67,16 @@
                     <div class="logo-box">
                         <div class="logo">
                             <a href="{{ BaseHelper::getHomepageUrl() }}">
-                                {{ Theme::getLogoImage(maxHeight: 44) }}
+                                @if (theme_option('logo'))
+                                    {{ Theme::getLogoImage(maxHeight: 44) }}
+                                @else
+                                    <span class="editorial-wordmark"><strong>RE<span>/</span>MAX</strong><small>PROFESSIONAL</small></span>
+                                @endif
                             </a>
                         </div>
                     </div>
                     <div class="nav-outer">
-                        <nav class="main-menu show navbar-expand-md">
+                        <nav class="main-menu show navbar-expand-md" aria-label="{{ __('Main navigation') }}">
                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                 {!! Menu::renderMenuLocation('main-menu', [
                                     'options' => ['class' => 'navigation clearfix'],
@@ -88,24 +92,28 @@
                             </div>
                         @endif
                     </div>
-                    <div class="mobile-nav-toggler mobile-button">
+                    <button type="button" class="mobile-nav-toggler mobile-button" aria-label="{{ __('Open menu') }}" aria-expanded="false" aria-controls="editorial-mobile-menu">
                         <x-core::icon name="ti ti-menu-2" />
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="close-btn">
+    <button type="button" class="close-btn" aria-label="{{ __('Close menu') }}">
         <x-core::icon name="ti ti-x" />
-    </div>
+    </button>
 
-    <div class="mobile-menu" dir="{{ $mobileMenuDirection }}">
+    <div id="editorial-mobile-menu" class="mobile-menu" dir="{{ $mobileMenuDirection }}">
         <div class="menu-backdrop"></div>
         <nav class="menu-box">
             <div class="nav-logo">
                 <a href="{{ BaseHelper::getHomepageUrl() }}">
-                    {{ Theme::getLogoImage(maxHeight: 44) }}
+                    @if (theme_option('logo'))
+                                    {{ Theme::getLogoImage(maxHeight: 44) }}
+                                @else
+                                    <span class="editorial-wordmark"><strong>RE<span>/</span>MAX</strong><small>PROFESSIONAL</small></span>
+                                @endif
                 </a>
             </div>
             <div class="bottom-canvas">

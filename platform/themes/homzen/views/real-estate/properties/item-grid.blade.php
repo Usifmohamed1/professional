@@ -8,12 +8,14 @@
         : $property->category;
 @endphp
 
-<div @class(['property-item homeya-box', $class]) @if ($property->latitude && $property->longitude) data-lat="{{ $property->latitude }}" data-lng="{{ $property->longitude }}" @endif>
+<div @class(['property-item homeya-box editorial-property-card', $class]) @if ($property->latitude && $property->longitude) data-lat="{{ $property->latitude }}" data-lng="{{ $property->longitude }}" @endif>
     <div class="archive-top">
+        <div class="editorial-card-media">
         <a href="{{ $property->url }}" class="images-group">
             <div class="images-style">
                 {{ RvMedia::image($property->image, $property->name, 'medium-rectangle') }}
             </div>
+        </a>
             <div class="top">
                 <div class="d-flex gap-8">
                     @if($property->is_featured)
@@ -29,7 +31,7 @@
                                 data-id="{{ $property->getKey() }}"
                                 data-add-message="{{ __('Added ":name" to wishlist successfully!', ['name' => $property->name]) }}"
                                 data-remove-message="{{ __('Removed ":name" from wishlist successfully!', ['name' => $property->name]) }}"
-                                aria-label="{{ __('Add to wishlist') }}"
+                                aria-label="{{ __('Save :name', ['name' => $property->name]) }}" aria-pressed="false"
                         >
                             <x-core::icon name="ti ti-heart" />
                         </button>
@@ -41,11 +43,11 @@
                     <span class="flag-tag style-2">{{ $displayCategory->name }}</span>
                 </div>
             @endif
-        </a>
+        </div>
         <div class="content">
-            <{{ $class === 'lg' ? 'h5' : 'div' }} @class(['text-capitalize', 'h7 fw-7' => $class !== 'lg'])>
-                <a href="{{ $property->url }}" class="link line-clamp-1" title="{{ $property->name }}">{!! BaseHelper::clean($property->name) !!}</a>
-            </{{ $class === 'lg' ? 'h5' : 'div' }}>
+<h3 class="editorial-card-title">
+                <a href="{{ $property->url }}" class="link line-clamp-2" title="{{ $property->name }}">{!! BaseHelper::clean($property->name) !!}</a>
+            </h3>
             @if($property->short_address)
                 <div class="desc">
                     <i class="icon icon-mapPin"></i>
@@ -59,13 +61,13 @@
                 @if($property->number_bedroom)
                     <li class="item">
                         <i class="icon icon-bed"></i>
-                        <span>{{ fmod($property->number_bedroom, 1) == 0 ? number_format($property->number_bedroom) : $property->number_bedroom }}</span>
+                        <span>{{ fmod($property->number_bedroom, 1) == 0 ? number_format($property->number_bedroom) : $property->number_bedroom }} <span class="editorial-spec-label">{{ __('Beds') }}</span></span>
                     </li>
                 @endif
                 @if($property->number_bathroom)
                     <li class="item">
                         <i class="icon icon-bathtub"></i>
-                        <span>{{ fmod($property->number_bathroom, 1) == 0 ? number_format($property->number_bathroom) : $property->number_bathroom }}</span>
+                        <span>{{ fmod($property->number_bathroom, 1) == 0 ? number_format($property->number_bathroom) : $property->number_bathroom }} <span class="editorial-spec-label">{{ __('Baths') }}</span></span>
                     </li>
                 @endif
                 @if($property->number_reception)
@@ -96,8 +98,9 @@
         @endif
         @if (!setting('real_estate_hide_price', false))
             <div class="d-flex align-items-center">
-                <span class="h6">@include(Theme::getThemeNamespace('views.real-estate.properties.price'), ['property' => $property])</span>
+                <span class="h6 editorial-card-price">@include(Theme::getThemeNamespace('views.real-estate.properties.price'), ['property' => $property])</span>
             </div>
         @endif
+        <a class="editorial-card-link" href="{{ $property->url }}" aria-label="{{ __('View :name', ['name' => $property->name]) }}"><x-core::icon name="ti ti-arrow-up-right" /></a>
     </div>
 </div>

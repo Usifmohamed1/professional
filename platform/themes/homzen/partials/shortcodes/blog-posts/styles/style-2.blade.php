@@ -1,4 +1,4 @@
-<section class="flat-section flat-latest-new-v2">
+<section class="editorial-section editorial-blog-posts flat-section flat-latest-new-v2">
     <div class="container">
         {!! Theme::partial('shortcode-heading', ['shortcode' => $shortcode, 'centered' => false]) !!}
 

@@ -1,5 +1,5 @@
 <section
-    class="flat-section flat-recommended wow fadeInUpSmall"
+    class="editorial-section editorial-projects flat-section flat-recommended wow fadeInUpSmall"
     data-wow-delay=".4s"
     data-wow-duration="2000ms"
     @style(["background-color: $shortcode->background_color" => $shortcode->background_color])

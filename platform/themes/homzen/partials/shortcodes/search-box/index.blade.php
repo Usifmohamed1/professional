@@ -1,3 +1,4 @@
+<div class="editorial-search-shortcode">
 @php
     use Botble\RealEstate\Facades\RealEstateHelper;
     use Botble\Theme\Facades\ThemeOption;
@@ -44,3 +45,5 @@
         ThemeOption::setOption('real_estate_enable_advanced_search', $originalAdvancedOption);
     }
 @endphp
+
+</div>

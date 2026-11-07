@@ -6,8 +6,19 @@
     $footerBackgroundImage = RvMedia::getImageUrl(theme_option('footer_background_image'));
 @endphp
 
-@if($topFooterSidebar || $innerFooterSidebar || $bottomFooterSidebar)
-    <footer class="footer" @style(["background-color: $footerBackgroundColor" => $footerBackgroundColor, "background-image: url('$footerBackgroundImage') !important" => theme_option('footer_background_image')])>
+
+    <footer class="footer editorial-footer" @style(["background-color: $footerBackgroundColor" => $footerBackgroundColor, "background-image: url('$footerBackgroundImage') !important" => theme_option('footer_background_image')])>
+        <div class="container editorial-footer__invitation">
+            <div>
+                <p class="editorial-eyebrow">RE/MAX PROFESSIONAL</p>
+                <h2>{{ __('A place for your next chapter.') }}</h2>
+            </div>
+            @if ($hotline = theme_option('hotline'))
+                <a class="editorial-circle-link" href="tel:{{ preg_replace('/[^0-9+]/', '', $hotline) }}" aria-label="{{ __('Call our team') }}"><x-core::icon name="ti ti-arrow-up-right" /></a>
+            @elseif (is_plugin_active('real-estate'))
+                <a class="editorial-circle-link" href="{{ RealEstateHelper::getPropertiesListPageUrl() }}" aria-label="{{ __('Explore properties') }}"><x-core::icon name="ti ti-arrow-up-right" /></a>
+            @endif
+        </div>
         @if($topFooterSidebar)
             <div class="top-footer">
                 <div class="container">
@@ -38,4 +49,3 @@
             </div>
         @endif
     </footer>
-@endif

@@ -7,10 +7,12 @@ const dist = `public/themes/${directory}`
 
 mix
     .sass(`${source}/assets/sass/style.scss`, `${dist}/css`)
+    .sass(`${source}/assets/sass/editorial-account.scss`, `${dist}/css`)
     .js(`${source}/assets/js/script.js`, `${dist}/js`)
 
 if (mix.inProduction()) {
     mix
         .copy(`${dist}/css/style.css`, `${source}/public/css`)
+        .copy(`${dist}/css/editorial-account.css`, `${source}/public/css`)
         .copy(`${dist}/js/script.js`, `${source}/public/js`)
 }

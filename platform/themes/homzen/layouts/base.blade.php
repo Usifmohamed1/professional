@@ -24,9 +24,7 @@
 
         <link rel="stylesheet" href="{{ Theme::asset()->url('css/navbar-logo.css') }}">
 
-        @if (theme_option('hotline'))
-            <link rel="stylesheet" href="{{ Theme::asset()->url('css/floating-contact.css') }}">
-        @endif
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/floating-contact.css') }}">
 
         @if (is_plugin_active('language') && preg_match('/^ar(?:[_-]|$)/i', Language::getCurrentLocale()))
             <link rel="stylesheet" href="{{ Theme::asset()->url('css/arabic-font.css') }}">
@@ -62,10 +60,12 @@
 
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
 
-        <div id="wrapper">
-            <main class="clearfix">
+        <a class="editorial-skip-link" href="#main-content">{{ __('Skip to content') }}</a>
+
+        <div id="wrapper" class="editorial-site">
+            <div class="clearfix">
                 @yield('content')
-            </main>
+            </div>
         </div>
 
         {!! Theme::footer() !!}

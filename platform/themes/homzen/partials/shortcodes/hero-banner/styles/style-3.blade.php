@@ -4,7 +4,7 @@
     $descriptionColor = $shortcode->description_color ?: '#000000';
 @endphp
 
-<section class="flat-slider home-3" @style(["background-image: url('$backgroundImage') !important" => $backgroundImage])>
+<section class="editorial-hero-alt editorial-hero-alt--3 flat-slider home-3" @style(["background-image: url('$backgroundImage') !important" => $backgroundImage])>
     <div class="container relative">
         <div class="row position-relative">
             <div class="col-xl-8 col-lg-7">

@@ -21,43 +21,9 @@
     Theme::set('headerMeta', $headerMeta);
 @endphp
 
-<style>
-    .property-detail-page .flat-slider-detail-v1 {
-        margin-bottom: 0;
-    }
 
-    .property-detail-page .flat-slider-detail-v1 .box-imgage-detail img {
-        object-fit: cover;
-        background-color: transparent;
-    }
 
-    .property-detail-page .flat-property-detail .header-property-detail {
-        margin: 0 0 20px;
-    }
-
-    .property-detail-page .agency-contact-logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100px;
-        min-width: 100px;
-        height: 100px;
-        padding: 8px;
-        overflow: hidden;
-        border-radius: 50%;
-        background: #fff;
-    }
-
-    .property-detail-page .agency-contact-logo img {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-</style>
-
-<div class="property-detail-page">
+<div class="property-detail-page editorial-detail-page">
     @include(Theme::getThemeNamespace("views.real-estate.single-layouts.style-$style"), ['model' => $property])
 </div>
 

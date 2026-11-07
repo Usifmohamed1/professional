@@ -5,11 +5,13 @@
         : $property->category;
 @endphp
 
-<div class="property-item homeya-box list-style-1" @if ($property->latitude && $property->longitude) data-lat="{{ $property->latitude }}" data-lng="{{ $property->longitude }}" @endif>
+<div class="property-item homeya-box list-style-1 editorial-property-card" @if ($property->latitude && $property->longitude) data-lat="{{ $property->latitude }}" data-lng="{{ $property->longitude }}" @endif>
+    <div class="editorial-card-media">
     <a href="{{ $property->url }}" class="images-group">
         <div class="images-style">
             {{ RvMedia::image($property->image, $property->name, 'medium-square') }}
         </div>
+    </a>
         <div class="top">
             <ul class="d-flex gap-4 flex-column">
                 @if($property->is_featured)
@@ -25,7 +27,7 @@
                             data-id="{{ $property->getKey() }}"
                             data-add-message="{{ __('Added ":name" to wishlist successfully!', ['name' => $property->name]) }}"
                             data-remove-message="{{ __('Removed ":name" from wishlist successfully!', ['name' => $property->name]) }}"
-                            aria-label="{{ __('Add to wishlist') }}"
+                            aria-label="{{ __('Save :name', ['name' => $property->name]) }}" aria-pressed="false"
                     >
                         <x-core::icon name="ti ti-heart" />
                     </button>
@@ -37,10 +39,10 @@
                 <span class="flag-tag style-2">{{ $displayCategory->name }}</span>
             </div>
         @endif
-    </a>
+    </div>
     <div class="content">
         <div class="archive-top">
-            <div class="h7 text-capitalize fw-7">
+            <div class="h7 editorial-card-title">
                 <a href="{{ $property->url }}" class="link line-clamp-1" title="{{ $property->name }}">{!! BaseHelper::clean($property->name) !!}</a>
             </div>
             @if($property->short_address)

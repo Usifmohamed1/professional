@@ -2,7 +2,7 @@
     $backgroundColor = ($shortcode->background_color && $shortcode->background_color != 'transparent') ? $shortcode->background_color : '#161e2d';
 @endphp
 
-<section class="flat-section-v3" style="background-color: {{ $backgroundColor }}">
+<section class="editorial-section editorial-property-categories flat-section-v3" style="background-color: {{ $backgroundColor }}">
     <div class="container">
         @if($shortcode->subtitle || $shortcode->title)
             <div class="box-title text-center wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">

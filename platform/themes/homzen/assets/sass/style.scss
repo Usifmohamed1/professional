@@ -48,3 +48,18 @@
 @import './responsive';
 
 @import 'custom';
+
+// Editorial redesign layers, after the legacy theme for compatible overrides.
+@import "editorial";
+@import "editorial-home";
+@import "editorial-estate";
+@import "editorial-pages";
+
+// English serif accents never replace the existing local Arabic typeface.
+html[lang|='ar'] .editorial-site {
+    :is(h1, h2, h3, .editorial-card-title, .editorial-eyebrow, .text-subtitle) {
+        font-family: var(--heading-font, 'Lama Sans', sans-serif) !important;
+        letter-spacing: 0 !important;
+    }
+    :is(h1, h2, h3) { line-height: 1.5 !important; }
+}

@@ -495,3 +495,8 @@ app()->booted(function (): void {
         return $html;
     }, 120, 2);
 });
+
+// Keep the account refresh in the active theme; Botble's dashboard remains intact.
+add_filter('account_dashboard_header', function (?string $html): string {
+    return ($html ?? '') . Html::style(Theme::asset()->url('css/editorial-account.css'));
+}, 20);

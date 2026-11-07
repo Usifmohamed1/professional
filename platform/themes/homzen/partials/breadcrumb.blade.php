@@ -10,9 +10,9 @@
 @endphp
 
 @if ($showBreadcrumb === 'yes')
-    <section class="flat-title-page style-2" @style(["background-color: $backgroundColor" => $backgroundColor != 'transparent', "background-image: url($backgroundImage); background-size: cover; background-position: center" => $backgroundImage])>
+    <section class="flat-title-page style-2 editorial-page-heading" @style(["background-color: $backgroundColor" => $backgroundColor != 'transparent', "background-image: url($backgroundImage); background-size: cover; background-position: center" => $backgroundImage])>
         <div class="container">
-            <ul class="breadcrumb">
+            <nav aria-label="{{ __('Breadcrumb') }}"><ul class="breadcrumb">
                 @foreach(Theme::breadcrumb()->getCrumbs() as $crumb)
                     <li>
                         @if($loop->last)
@@ -23,7 +23,7 @@
                         @endif
                     </li>
                 @endforeach
-            </ul>
+            </ul></nav>
             @if ($breadcrumbStyle !== 'without-title')
                 <h1 class="text-center page-title mt-3 mb-0" @style(["color: $textColor" => $textColor && $textColor != 'transparent'])>{!! BaseHelper::clean(Theme::get('pageTitle') ? Theme::get('pageTitle') : SeoHelper::getTitleOnly()) !!}</h1>
             @endif

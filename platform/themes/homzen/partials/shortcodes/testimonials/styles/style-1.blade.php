@@ -1,5 +1,5 @@
 <section
-    class="flat-section-v3 flat-testimonial"
+    class="editorial-section editorial-testimonials flat-section-v3 flat-testimonial"
     @style(["background-color: $shortcode->background_color" => $shortcode->background_color])
 >
     <div class="cus-layout-1">

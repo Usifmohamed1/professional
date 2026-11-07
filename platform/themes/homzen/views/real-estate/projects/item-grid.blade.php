@@ -1,9 +1,11 @@
-<div @class(['homeya-box', $class ?? null]) @if ($project->latitude && $project->longitude) data-lat="{{ $project->latitude }}" data-lng="{{ $project->longitude }}" @endif>
+<div @class(['homeya-box editorial-property-card editorial-project-card', $class ?? null]) @if ($project->latitude && $project->longitude) data-lat="{{ $project->latitude }}" data-lng="{{ $project->longitude }}" @endif>
     <div class="archive-top">
+        <div class="editorial-card-media">
         <a href="{{ $project->url }}" class="images-group">
             <div class="images-style">
                 {{ RvMedia::image($project->image, $project->name, 'medium-rectangle') }}
             </div>
+        </a>
             <div class="top">
                 <div class="d-flex gap-8">
                     @if($project->is_featured)
@@ -17,7 +19,7 @@
                             data-id="{{ $project->getKey() }}"
                             data-add-message="{{ __('Added ":name" to wishlist successfully!', ['name' => $project->name]) }}"
                             data-remove-message="{{ __('Removed ":name" from wishlist successfully!', ['name' => $project->name]) }}"
-                            aria-label="{{ __('Add to wishlist') }}"
+                            aria-label="{{ __('Save :name', ['name' => $project->name]) }}" aria-pressed="false"
                     >
                         <x-core::icon name="ti ti-heart" />
                     </button>
@@ -28,11 +30,11 @@
                     <span class="flag-tag style-2">{{ $project->category->name }}</span>
                 </div>
             @endif
-        </a>
+        </div>
         <div class="content">
-            <div class="text-capitalize h7 fw-7">
-                <a href="{{ $project->url }}" class="link line-clamp-1" title="{{ $project->name }}">{!! BaseHelper::clean($project->name) !!}</a>
-            </div>
+            <h3 class="editorial-card-title">
+                <a href="{{ $project->url }}" class="link line-clamp-2" title="{{ $project->name }}">{!! BaseHelper::clean($project->name) !!}</a>
+            </h3>
             @if($project->short_address)
                 <div class="desc">
                     <i class="icon icon-mapPin"></i>
@@ -65,8 +67,9 @@
     <div class="archive-bottom d-flex justify-content-between align-items-center">
         @if (!setting('real_estate_hide_price', false))
             <div class="d-flex align-items-center">
-                <span class="h6">{{ $project->formatted_price }}</span>
+                <span class="h6 editorial-card-price">{{ $project->formatted_price }}</span>
             </div>
         @endif
+        <a class="editorial-card-link" href="{{ $project->url }}" aria-label="{{ __('View :name', ['name' => $project->name]) }}"><x-core::icon name="ti ti-arrow-up-right" /></a>
     </div>
 </div>

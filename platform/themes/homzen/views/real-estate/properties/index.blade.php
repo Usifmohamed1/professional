@@ -14,8 +14,10 @@
 @if ($properties->isNotEmpty())
     @include(Theme::getThemeNamespace("views.real-estate.properties.$itemLayout"), compact('itemsPerRow'))
 @else
-    <div class="alert alert-warning" role="alert">
-        {{ __('No properties found.') }}
+    <div class="editorial-empty-state" role="status">
+        <x-core::icon name="ti ti-search" />
+        <h3>{{ __('No properties found.') }}</h3>
+        <p>{{ __('Try a different location or adjust your filters to discover more options.') }}</p>
     </div>
 @endif
 

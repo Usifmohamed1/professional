@@ -15,12 +15,12 @@
                 @endforeach
             </div>
             <div class="box-navigation">
-                <div class="navigation swiper-nav-next nav-next-location">
+                <button type="button" class="navigation swiper-nav-next nav-next-location" aria-label="{{ __('Previous photo') }}">
                     <x-core::icon name="ti ti-chevron-left" class="icon" />
-                </div>
-                <div class="navigation swiper-nav-prev nav-prev-location">
+                </button>
+                <button type="button" class="navigation swiper-nav-prev nav-prev-location" aria-label="{{ __('Next photo') }}">
                     <x-core::icon name="ti ti-chevron-right" class="icon" />
-                </div>
+                </button>
             </div>
         </div>
     </section>

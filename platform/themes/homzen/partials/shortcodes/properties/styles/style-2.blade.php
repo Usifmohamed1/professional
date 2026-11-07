@@ -1,5 +1,5 @@
 <section
-    class="flat-section flat-recommended"
+    class="editorial-section editorial-properties flat-section flat-recommended"
     @style(["background-color: $shortcode->background_color" => $shortcode->background_color])
 >
     <div class="container">

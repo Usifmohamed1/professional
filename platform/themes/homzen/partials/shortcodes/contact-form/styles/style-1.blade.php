@@ -4,7 +4,7 @@
     $contactInfo = Shortcode::fields()->getTabsData(['label', 'content'], $shortcode);
 @endphp
 
-<section class="flat-section flat-contact">
+<section class="editorial-section editorial-contact-form flat-section flat-contact">
     <div class="container">
         @if($shortcode->show_information_box)
         <div class="row">

@@ -1,4 +1,4 @@
-<section class="flat-section flat-pricing">
+<section class="editorial-section editorial-pricing-plan flat-section flat-pricing">
     <div class="container">
         {!! Theme::partial('shortcode-heading', compact('shortcode')) !!}
 

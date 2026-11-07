@@ -1,4 +1,4 @@
-<section class="flat-section flat-agents" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
+<section class="editorial-section editorial-agents flat-section flat-agents" @style(["background-color: $shortcode->background_color" => $shortcode->background_color])>
     <div class="container">
         {!! Theme::partial('shortcode-heading', compact('shortcode')) !!}
 

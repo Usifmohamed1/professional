@@ -3,7 +3,7 @@
 @endphp
 
 <section
-    class="flat-section-v3 flat-slider-contact"
+    class="editorial-section editorial-contact-form flat-section-v3 flat-slider-contact"
     @style(["background-image: url('$backgroundImage') !important" => $backgroundImage])
 >
     <div class="container">

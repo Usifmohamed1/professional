@@ -1,4 +1,4 @@
-<section class="flat-section flat-property-v3 wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
+<section class="editorial-section editorial-properties flat-section flat-property-v3 wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
     <div class="container">
         {!! Theme::partial('shortcode-heading', compact('shortcode')) !!}
         <div class="wrap-sw-property">

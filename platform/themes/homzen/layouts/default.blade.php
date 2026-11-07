@@ -16,7 +16,9 @@
     @endif
 
     <div class="container">
+        <main id="main-content" tabindex="-1">
         {!! Theme::content() !!}
+    </main>
     </div>
 
     {!! apply_filters('ads_render', null, 'footer_before') !!}

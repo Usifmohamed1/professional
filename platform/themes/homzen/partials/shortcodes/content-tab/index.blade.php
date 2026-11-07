@@ -1,4 +1,4 @@
-<section class="flat-section">
+<section class="editorial-section editorial-content-tab flat-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-5">

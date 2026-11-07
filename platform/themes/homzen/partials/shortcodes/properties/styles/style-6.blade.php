@@ -1,4 +1,4 @@
-<section class="flat-property-v3">
+<section class="editorial-section editorial-properties flat-property-v3">
     <div class="container-full">
         <div class="wrap-property-v2">
             @if($shortcode->background_image)

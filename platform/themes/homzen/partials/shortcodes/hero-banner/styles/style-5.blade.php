@@ -15,7 +15,7 @@
     }
 @endphp
 
-<section class="flat-slider home-5">
+<section class="editorial-hero-alt editorial-hero-alt--5 flat-slider home-5">
     <div class="wrap-slider-swiper">
         <div class="swiper-container thumbs-swiper-column">
             <div class="swiper-wrapper">

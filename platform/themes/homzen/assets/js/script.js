@@ -615,7 +615,7 @@ $(() => {
         $('.select_js').niceSelect()
 
         // Add clear (X) button to search form dropdowns (except #location which has its own handler)
-        $('.form-sl .select_js, .widget-filter-search .select_js').not('#location').each(function() {
+        $('.form-sl .select_js, .widget-filter-search .select_js').not('[data-bb-location-select]').each(function() {
             const $select = $(this);
             const $niceSelect = $select.next('.nice-select');
             if (!$niceSelect.length) return;
@@ -733,13 +733,7 @@ $(() => {
             $('.mobile-menu .navigation li ul').slideUp(0)
         })
 
-        $(document).keydown(function (e) {
-            if (e.keyCode === 27) {
-                $('body').removeClass('mobile-menu-visible')
-                $('.mobile-menu .navigation > li').removeClass('open')
-                $('.mobile-menu .navigation li ul').slideUp(0)
-            }
-        })
+
     }
 
     /* alert box
@@ -809,7 +803,7 @@ $(() => {
             revealDuration = 600,
             revealAnimationDelay = 1500
 
-        initHeadline()
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) initHeadline()
 
         function initHeadline() {
             //insert <i> element for each letter of a changing word
@@ -2026,7 +2020,7 @@ $(() => {
         const projectWishlistArray = projectWishlist ? projectWishlist.split(',') : []
 
         wishlistArray.forEach((id) => {
-            $(`[data-bb-toggle="add-to-wishlist"][data-type="property"][data-id="${id}"]`).addClass('active').html(`
+            $(`[data-bb-toggle="add-to-wishlist"][data-type="property"][data-id="${id}"]`).addClass('active').attr('aria-pressed', 'true').html(`
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" />
@@ -2035,7 +2029,7 @@ $(() => {
         })
 
         projectWishlistArray.forEach((id) => {
-            $(`[data-bb-toggle="add-to-wishlist"][data-type="project"][data-id="${id}"]`).addClass('active').html(`
+            $(`[data-bb-toggle="add-to-wishlist"][data-type="project"][data-id="${id}"]`).addClass('active').attr('aria-pressed', 'true').html(`
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" />
@@ -2269,7 +2263,7 @@ $(() => {
                 return
             }
 
-            const id = $currentTarget.data('id')
+            const id = String($currentTarget.data('id'))
             const cookieName = $currentTarget.data('type') === 'property' ? 'wishlist' : 'project_wishlist'
 
             const wishlist = decodeURIComponent(getCookie(cookieName) || '')
@@ -2277,7 +2271,7 @@ $(() => {
 
             if (wishlistArray.includes(String(id))) {
                 wishlistArray.splice(wishlistArray.indexOf(id), 1)
-                $currentTarget.removeClass('active').html(`
+                $currentTarget.removeClass('active').attr('aria-pressed', 'false').html(`
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
@@ -2287,7 +2281,7 @@ $(() => {
                 Theme.showSuccess($currentTarget.data('remove-message'))
             } else {
                 wishlistArray.push(id)
-                $currentTarget.addClass('active').html(`
+                $currentTarget.addClass('active').attr('aria-pressed', 'true').html(`
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" />
@@ -2383,6 +2377,8 @@ $(() => {
     /* Enhanced Location Dropdown with Infinite Scroll
     -------------------------------------------------------------------------------------*/
     const enhancedLocationDropdown = function() {
+        $('[data-bb-location-select]').each(function () {
+        const $location = $(this);
         let page = 1;
         let searchTerm = '';
         let loadingMore = false;
@@ -2390,7 +2386,7 @@ $(() => {
 
         // Function to set up the enhanced behavior after niceSelect is initialized
         function enhanceLocationDropdown() {
-            const $locationNiceSelect = $('#location').next('.nice-select');
+            const $locationNiceSelect = $location.next('.nice-select');
             if (!$locationNiceSelect.length) return;
 
             // Add search wrapper if it doesn't exist
@@ -2398,14 +2394,14 @@ $(() => {
                 const $list = $locationNiceSelect.find('.list');
 
                 // Add search input at the top of the list with clear button
-                const searchPlaceholder = $('#location').data('search-placeholder') || 'Search for a city...';
+                const searchPlaceholder = $location.data('search-placeholder') || 'Search for a city...';
                 $list.prepend('<div class="nice-select-search-wrapper"><input type="text" class="nice-select-search" placeholder="' + searchPlaceholder + '"/><span class="nice-select-search-clear">&times;</span></div>');
 
                 // Add clear value button (replaces caret when a city is selected)
                 $locationNiceSelect.append('<span class="nice-select-value-clear">&times;</span>');
 
                 // Show clear button if a city is already selected on page load
-                if ($('#location').val()) {
+                if ($location.val()) {
                     $locationNiceSelect.addClass('has-value');
                 }
 
@@ -2435,7 +2431,7 @@ $(() => {
 
                 // Clear existing city options (keep "All" option with empty value)
                 $list.find('.option').not('[data-value=""]').remove();
-                $('#location').find('option').not('[value=""]').remove();
+                $location.find('option').not('[value=""]').remove();
 
                 loadCities($niceSelect);
             });
@@ -2482,7 +2478,7 @@ $(() => {
                 e.stopPropagation();
                 e.preventDefault();
 
-                const $select = $('#location');
+                const $select = $location;
 
                 // Reset to "All"
                 $select.val('');
@@ -2559,7 +2555,7 @@ $(() => {
         }
 
         function updateCityOptions($niceSelect, cities, append) {
-            const $select = $('#location');
+            const $select = $location;
             const $list = $niceSelect.find('.list');
             const $loader = $niceSelect.find('.nice-select-loader');
             const selectedVal = $select.val();
@@ -2635,7 +2631,7 @@ $(() => {
 
         // Wait for nice-select to be initialized by the theme
         const checkInterval = setInterval(function() {
-            if ($('#location').next('.nice-select').length) {
+            if ($location.next('.nice-select').length) {
                 clearInterval(checkInterval);
                 enhanceLocationDropdown();
             }
@@ -2643,11 +2639,13 @@ $(() => {
 
         // Backup initialization if the theme hasn't done it after 2 seconds
         setTimeout(function() {
-            if (!$('#location').next('.nice-select').length && $.fn.niceSelect) {
-                $('#location').niceSelect();
+            clearInterval(checkInterval);
+            if (!$location.next('.nice-select').length && $.fn.niceSelect) {
+                $location.niceSelect();
                 enhanceLocationDropdown();
             }
         }, 2000);
+        })
     }
 
     enhancedLocationDropdown()
@@ -2674,7 +2672,7 @@ $(() => {
         const rotationInterval = $heroBanner.data('rotation-interval') || 5; // Default 5 seconds
         const enableRotation = $heroBanner.data('enable-rotation');
 
-        if (enableRotation !== 'yes' || !sliderImages || sliderImages.length <= 1) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || enableRotation !== 'yes' || !sliderImages || sliderImages.length <= 1) {
             return;
         }
 
@@ -2714,4 +2712,52 @@ $(() => {
     };
 
     initHeroBannerSlider();
+})
+
+// Small progressive enhancements; existing real estate event hooks are retained.
+$(() => {
+    const menuButton = document.querySelector('.mobile-nav-toggler')
+    const mobileMenu = document.getElementById('editorial-mobile-menu')
+    const closeButton = document.querySelector('.editorial-header .close-btn')
+    const focusableMenuItems = () => [...(mobileMenu?.querySelectorAll('a[href], button, input, select, [tabindex="0"]') || []), closeButton]
+        .filter(element => element && element.getClientRects().length && !element.disabled && element.tabIndex >= 0)
+    const closeMenu = () => {
+        document.body.classList.remove('mobile-menu-visible')
+        menuButton?.setAttribute('aria-expanded', 'false')
+        mobileMenu?.setAttribute('inert', '')
+        menuButton?.focus()
+    }
+    if (mobileMenu) mobileMenu.setAttribute('inert', '')
+    menuButton?.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'true')
+        mobileMenu?.removeAttribute('inert')
+        requestAnimationFrame(() => focusableMenuItems()[0]?.focus())
+    })
+    document.querySelectorAll('.close-btn, .menu-backdrop').forEach(button => button.addEventListener('click', closeMenu))
+    document.addEventListener('keydown', event => {
+        if (!document.body.classList.contains('mobile-menu-visible')) return
+        if (event.key === 'Escape') { event.preventDefault(); closeMenu() }
+        if (event.key === 'Tab') {
+            const items = focusableMenuItems()
+            const first = items[0], last = items[items.length - 1]
+            if (event.shiftKey && (document.activeElement === first || !items.includes(document.activeElement))) {
+                event.preventDefault(); last?.focus()
+            } else if (!event.shiftKey && (document.activeElement === last || !items.includes(document.activeElement))) {
+                event.preventDefault(); first?.focus()
+            }
+        }
+    })
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.remove('is-pending'); observer.unobserve(entry.target) }
+        }), { threshold: 0.05 })
+        document.querySelectorAll('.editorial-section .box-title, .editorial-about, .editorial-footer__invitation').forEach(element => {
+            // Do not hide initial content or content already in the viewport.
+            if (element.getBoundingClientRect().top > window.innerHeight) {
+                element.classList.add('editorial-reveal', 'is-pending')
+                observer.observe(element)
+            }
+        })
+    }
 })

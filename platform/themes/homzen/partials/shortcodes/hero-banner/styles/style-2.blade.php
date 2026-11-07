@@ -3,7 +3,7 @@
     $descriptionColor = $shortcode->description_color ?: '#000000';
 @endphp
 
-<section class="flat-slider home-2">
+<section class="editorial-hero-alt editorial-hero-alt--2 flat-slider home-2">
     <div class="container relative">
         <div class="row">
             <div class="col-xl-10">

@@ -1,13 +1,13 @@
-<section class="flat-section">
+<section class="flat-section editorial-journal">
     {!! apply_filters('ads_render', null, 'blog_list_before') !!}
 
     <div class="row">
-        <div class="col-lg-8">
-            <div class="flat-blog-list">
-                @foreach($posts as $post)
-                    <div class="flat-blog-item">
+        <div class="col-lg-9 editorial-journal-main">
+            <div class="flat-blog-list editorial-journal-grid">
+                @forelse($posts as $post)
+                    <article class="flat-blog-item editorial-story">
                         @if ($post->image)
-                            <a class="img-style" href="{{ $post->url }}">
+                            <a class="img-style editorial-story-image" href="{{ $post->url }}">
                                 {{ RvMedia::image($post->image, $post->name) }}
                                 <span class="date-post">{{ Theme::formatDate($post->created_at) }}</span>
                             </a>
@@ -36,16 +36,22 @@
                             @if($post->description)
                                 <p class="description body-1">{!! BaseHelper::clean(Str::limit($post->description)) !!}</p>
                             @endif
-                            <a href="{{ $post->url }}" class="btn-read-more">{{ __('Read More') }}</a>
+                            <a href="{{ $post->url }}" class="btn-read-more">{{ __('Read the story') }} <span aria-hidden="true">↗</span></a>
                         </div>
+                    </article>
+                @empty
+                    <div class="editorial-empty" role="status">
+                        <p class="editorial-eyebrow">{{ __('The journal') }}</p>
+                        <h2>{{ __('No stories to show yet.') }}</h2>
+                        <p>{{ __('Please explore another category or visit us again soon.') }}</p>
                     </div>
-                @endforeach
+                @endforelse
 
                 {{ $posts->onEachSide(1)->links(Theme::getThemeNamespace('partials.pagination')) }}
             </div>
         </div>
-        <div class="col-lg-4">
-            <aside class="sidebar-blog">
+        <div class="col-lg-3">
+            <aside class="sidebar-blog editorial-journal-sidebar">
                 {!! dynamic_sidebar('blog_sidebar') !!}
             </aside>
         </div>

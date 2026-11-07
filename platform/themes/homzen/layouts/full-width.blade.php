@@ -15,7 +15,9 @@
         {!! Theme::breadcrumb()->render(Theme::getThemeNamespace('partials.breadcrumb')) !!}
     @endif
 
-    {!! Theme::content() !!}
+    <main id="main-content" tabindex="-1">
+        {!! Theme::content() !!}
+    </main>
 
     {!! apply_filters('ads_render', null, 'footer_before') !!}
 

@@ -3,7 +3,7 @@
     $expandFirst = $shortcode->expand_first_time !== '0';
 @endphp
 
-<section class="flat-section">
+<section class="editorial-section editorial-faqs flat-section">
     <div class="container">
         {!! Theme::partial('shortcode-heading', ['shortcode' => $shortcode]) !!}
 

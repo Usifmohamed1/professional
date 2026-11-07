@@ -1,4 +1,4 @@
-<section class="flat-section pt-0 flat-testimonial-v3 wow fadeInUpSmall" data-wow-delay=".6s" data-wow-duration="2000ms">
+<section class="editorial-section editorial-testimonials flat-section pt-0 flat-testimonial-v3 wow fadeInUpSmall" data-wow-delay=".6s" data-wow-duration="2000ms">
     <div class="container">
         <div class="row">
             <div class="col-lg-5">

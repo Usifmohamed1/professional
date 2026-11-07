@@ -20,7 +20,9 @@
     Theme::set('headerMeta', $headerMeta);
 @endphp
 
-@include(Theme::getThemeNamespace("views.real-estate.single-layouts.style-$style"), ['model' => $project])
+<div class="property-detail-page editorial-detail-page editorial-project-detail">
+    @include(Theme::getThemeNamespace("views.real-estate.single-layouts.style-$style"), ['model' => $project])
+</div>
 
 <template id="map-popup-content">
     <div class="map-popup-content">

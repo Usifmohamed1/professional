@@ -1,8 +1,10 @@
-<div class="homeya-box list-style-1" @if ($project->latitude && $project->longitude) data-lat="{{ $project->latitude }}" data-lng="{{ $project->longitude }}" @endif>
+<div class="homeya-box list-style-1 editorial-property-card" @if ($project->latitude && $project->longitude) data-lat="{{ $project->latitude }}" data-lng="{{ $project->longitude }}" @endif>
+    <div class="editorial-card-media">
     <a href="{{ $project->url }}" class="images-group">
         <div class="images-style">
             {{ RvMedia::image($project->image, $project->name, 'medium-square') }}
         </div>
+    </a>
         <div class="top">
             <ul class="d-flex gap-4 flex-column">
                 @if($project->is_featured)
@@ -16,7 +18,7 @@
                         data-id="{{ $project->getKey() }}"
                         data-add-message="{{ __('Added ":name" to wishlist successfully!', ['name' => $project->name]) }}"
                         data-remove-message="{{ __('Removed ":name" from wishlist successfully!', ['name' => $project->name]) }}"
-                        aria-label="{{ __('Add to wishlist') }}"
+                        aria-label="{{ __('Save :name', ['name' => $project->name]) }}" aria-pressed="false"
                 >
                     <x-core::icon name="ti ti-heart" />
                 </button>
@@ -27,10 +29,10 @@
                 <span class="flag-tag style-2">{{ $project->category->name }}</span>
             </div>
         @endif
-    </a>
+    </div>
     <div class="content">
         <div class="archive-top border-bottom-0">
-            <div class="h7 text-capitalize fw-7">
+            <div class="h7 editorial-card-title">
                 <a href="{{ $project->url }}" class="link line-clamp-1" title="{{ $project->name }}">{!! BaseHelper::clean($project->name) !!}</a>
             </div>
             @if($project->short_address)

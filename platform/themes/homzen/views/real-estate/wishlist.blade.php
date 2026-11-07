@@ -4,7 +4,7 @@
 
 <h1 class="d-none">{{ __('My Wishlist') }}</h1>
 
-<div class="flat-section">
+<div class="flat-section editorial-wishlist">
     @if($requiresLogin ?? false)
         <div class="text-center">
             <p class="body-2">{{ __('Please log in to view your wishlist.') }}</p>
@@ -41,6 +41,11 @@
             </section>
         @endif
     @else
-        <p class="text-center body-2">{{ __('You have not added any properties or projects to your wishlist.') }}</p>
+        <div class="editorial-empty-state">
+            <x-core::icon name="ti ti-heart" />
+            <h2>{{ __('A place for your favorites') }}</h2>
+            <p>{{ __('You have not added any properties or projects to your wishlist.') }}</p>
+            <a href="{{ RealEstateHelper::getPropertiesListPageUrl() }}" class="tf-btn primary">{{ __('Explore properties') }} <x-core::icon name="ti ti-arrow-up-right" /></a>
+        </div>
     @endif
 </div>
